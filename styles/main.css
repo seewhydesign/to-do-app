@@ -1,0 +1,46 @@
+
+body {
+  background-color: #dadada;
+}
+
+.mdl-layout-title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+
+.mdl-layout__content {
+  background-color: #fff;
+}
+
+
+.mdl-grid {
+    width: 80%;
+}
+
+main {
+  background-color: #dadada;
+}
+
+
+form {
+  position: relative;
+  text-align: center;
+}
+
+
+.mdl-button {
+  color: teal;
+}
+
+ul {
+  line-height: 4rem;
+  list-style-type: none;
+}
+
+
+li {
+  border-bottom: 1px solid #eee;
+  color: teal;
+  font-size: 1.2rem;
+}
