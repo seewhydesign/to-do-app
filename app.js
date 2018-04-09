@@ -11,14 +11,19 @@ function onReady() {
     toDos.push({
       title: newToDoText.value,
       complete: false,
-      id: ''
+      id: ++id
     });
 
     newToDoText.value = '';
 
     // need to increment id ??
-      ++id;
+      // ++id;
 
+    renderTheUI();
+  }
+
+  function deleteToDo(id) {
+    const toDoList = toDoList.filter(toDo => toDo.id < 1);
     renderTheUI();
   }
 
@@ -55,8 +60,9 @@ function onReady() {
 
   button.addEventListener('submit', event => {
     event.preventDefault();
-    const result = toDoList.filter(toDo => toDo.id < 1);
-    renderTheUI();
+    // const result = toDoList.filter(toDo => toDo.id < 1);
+    // renderTheUI();
+    deleteToDo();
   });
 
   renderTheUI();
