@@ -16,15 +16,11 @@ function onReady() {
 
     newToDoText.value = '';
 
-    // need to increment id ??
-      // ++id;
-
     renderTheUI();
   }
 
   function deleteToDo(id) {
-    const toDoList = toDoList.filter(toDo => toDo.id < 1);
-    renderTheUI();
+    return toDos.filter(toDo => toDo.id !== id);
   }
 
 
@@ -39,17 +35,26 @@ function onReady() {
       checkbox.type = "checkbox";
 
 // adding delete button
-      const button = document.createElement('button');
-      button.type = "button";
-      button.textContent = "Delete";
+      const deleteButton = document.createElement('button');
+      deleteButton.type = "button";
+      deleteButton.textContent = "Delete";
+
+
+      deleteButton.addEventListener('click', () => {
+        event.preventDefault();
+        newLi.parentNode.removeChild(newLi);
+        // event.renderTheUI();
+      });
+
 
       newLi.textContent = toDo.title;
 
       toDoList.appendChild(newLi);
       newLi.appendChild(checkbox);
-      newLi.appendChild(button);
+      newLi.appendChild(deleteButton);
     });
   }
+
 
 
   addToDoForm.addEventListener('submit', event => {
@@ -58,12 +63,7 @@ function onReady() {
   });
 
 
-  button.addEventListener('submit', event => {
-    event.preventDefault();
-    // const result = toDoList.filter(toDo => toDo.id < 1);
-    // renderTheUI();
-    deleteToDo();
-  });
+
 
   renderTheUI();
 }
